@@ -6,13 +6,14 @@
 
 
 <div align=center>
-[![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen)](LICENSE)
-![ZYNQ](https://img.shields.io/badge/ZYNQ-ZYNQ--7-orange)
+ 
+![ZYNQ](https://img.shields.io/badge/ZYNQ-ZYNQ--7000-orange)
 ![SoC](https://img.shields.io/badge/SoC-XC7Z020clg400--2-orange)
-
-![Vivado](https://img.shields.io/badge/Vivado-v2016.3%20v2018.3-blue)
-![SDK](https://img.shields.io/badge/SDK-v2016.3%20v2018.3-blue.svg)
-![Kernel](https://img.shields.io/badge/Kernel-Linux%20v4.14-yellow)
+![Camera](https://img.shields.io/badge/Camera-OV5640-yellow)
+ 
+ [![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen)](LICENSE)
+![Vivado](https://img.shields.io/badge/Vivado-v2018.3-blue)
+![SDK](https://img.shields.io/badge/SDK-v2018.3-blue.svg)
 
 <div align=left>
 
