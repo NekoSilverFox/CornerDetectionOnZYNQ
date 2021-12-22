@@ -41,27 +41,23 @@
 
 #### 原理图
 
-![Mizar Z7_7010_7020_原理图_V1.1_page-0001](README.assets/Mizar Z7_7010_7020_原理图_V1.1_page-0001.jpg)
+![Mizar Z7_7010_7020_原理图_V1.1_page-0001](doc/Mizar_Z7_Block_Diagramm/page-0001.jpg)
 
 #### PS Bank 500 & 501
 
-![Mizar Z7_7010_7020_原理图_V1.1_page-0002](README.assets/Mizar Z7_7010_7020_原理图_V1.1_page-0002.jpg)
+![Mizar Z7_7010_7020_原理图_V1.1_page-0002](README.assets/page-0002.jpg)
 
 #### PL Bank 34 & 35
 
-![Mizar Z7_7010_7020_原理图_V1.1_page-0005](README.assets/Mizar Z7_7010_7020_原理图_V1.1_page-0005.jpg)
+![Mizar Z7_7010_7020_原理图_V1.1_page-0005](README.assets/page-0005.jpg)
 
 #### PL HDMI-TX
 
-![Mizar Z7_7010_7020_原理图_V1.1_page-0012](README.assets/Mizar Z7_7010_7020_原理图_V1.1_page-0012.jpg)
+![Mizar Z7_7010_7020_原理图_V1.1_page-0012](README.assets/page-0012.jpg)
 
 #### PL HDMI-RX
 
-![Mizar Z7_7010_7020_原理图_V1.1_page-0013](README.assets/Mizar Z7_7010_7020_原理图_V1.1_page-0013.jpg)
-
-#### 
-
-
+![Mizar Z7_7010_7020_原理图_V1.1_page-0013](README.assets/page-0013.jpg)
 
 
 
@@ -87,7 +83,7 @@ OV5640 是一款 1/4 英寸单芯片图像传感器，其感光阵列达到 2592
 - **感光阵列(image array)** 将光信号转化成模拟信号，经过**增益放大器(AMP)** 之后进入 10 位 AD 转换器
 - **AD 转换器**将模拟信号转化成数字信号，并且经过 ISP（图像信号处理） 进行相关图像处理，最终输出所配置格式的 10 位视频数据流。
 
-**【重点】**其中，增益放大器控制以及 ISP 等都可以通过寄存器(registers)来配置，**外部通过 SCCB 总线来进行寄存器的配置**，**SCCB 总线接口协议兼容 IIC 协议，所以本实验中我们使用模拟 IIC 的方式来配置相关寄存器。** 
+**【重点】** 其中，增益放大器控制以及 ISP 等都可以通过寄存器(registers)来配置，**外部通过 SCCB 总线来进行寄存器的配置**，**SCCB 总线接口协议兼容 IIC 协议，所以本实验中我们使用模拟 IIC 的方式来配置相关寄存器。** 
 
 ---
 
