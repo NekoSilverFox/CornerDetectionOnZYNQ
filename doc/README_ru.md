@@ -11,7 +11,6 @@
 </p>
 
 <p align="center">
- <img width="100px" src="https://github.com/NekoSilverFox/NekoSilverfox/blob/master/icons/silverfox.svg" align="center" alt="Corner detection on ZYNQ" />
  <h1 align="center">Обнаружение углов на ZYNQ</h2>
  <p align="center"><b>Based on XC7Z020clg400-2 Soc</b></p>
 </p>
@@ -35,11 +34,12 @@
 
 ## Команда и преподаватель
 
-- Команда
+- **Команда**
 
     - Мэн Цзянин, группа 3530904/90102
-
     - Ли Ицзя, группа 3530904/90102
+
+    
 
 - **Преподаватель**
 

@@ -6,6 +6,7 @@
 
 
 <div align=center>
+
 ![ZYNQ](https://img.shields.io/badge/ZYNQ-ZYNQ--7000-orange)
 ![SoC](https://img.shields.io/badge/SoC-XC7Z020clg400--2-orange)
 ![Camera](https://img.shields.io/badge/Camera-OV5640-yellow)
