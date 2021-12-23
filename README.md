@@ -10,12 +10,15 @@
 ![SoC](https://img.shields.io/badge/SoC-XC7Z020clg400--2-orange)
 ![Camera](https://img.shields.io/badge/Camera-OV5640-yellow)
 
- [![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen)](LICENSE)
 ![Vivado](https://img.shields.io/badge/Vivado-v2018.3-blue)
 ![SDK](https://img.shields.io/badge/SDK-v2018.3-blue.svg)
 
 <div align=left>
+
+
 [toc]
+
 
 ## 实验说明
 
@@ -114,7 +117,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
 - t3: >= 1 毫秒：传感器上电稳定到 ResetB 拉高之间的延迟
 - t4: >=20 毫秒：ResetB 拉高到 SCCB 初始化之间的延迟
 
-步骤：
+**步骤：**
 
 1. ResetB 拉低，复位 OV5640 。PWDN 引脚拉高
 2. DOVDD 和 AVDD 上电，这两路最好同时上电
@@ -376,7 +379,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 ![image-20211024203206551](README.assets/image-20211024203206551.png)
 
-#### 4) 添加 `ZYNQ-7` IP核
+#### 3) 添加 `ZYNQ-7` IP核
 
 - 使能 UART 端口
 
@@ -390,7 +393,12 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
   ![image-20211024205512280](README.assets/image-20211024205512280.png)
   
-  
+
+
+
+#### 4) 根据开发板型号修改内存型号
+
+
 
 #### 5) 添加 OV5640 摄像头 IP 核
 
@@ -693,6 +701,8 @@ AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流
 
 #### 18) 生成顶层 HDL 文件
 
+
+
 #### 19) 进行管脚约束
 
 ```xdc
@@ -748,9 +758,15 @@ set_property IOSTANDARD TMDS_33 [get_ports hdmi_tx_clk_p]
 
 
 
+---
+
+
+
 ### 3. Xilinx SDK 程序设计部分
 
 #### 1) 新建工程
+
+
 
 #### 2) 添加以下文件
 
