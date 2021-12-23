@@ -6,7 +6,6 @@
 
 
 <div align=center>
-
 ![ZYNQ](https://img.shields.io/badge/ZYNQ-ZYNQ--7000-orange)
 ![SoC](https://img.shields.io/badge/SoC-XC7Z020clg400--2-orange)
 ![Camera](https://img.shields.io/badge/Camera-OV5640-yellow)
@@ -14,6 +13,10 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen)](LICENSE)
 ![Vivado](https://img.shields.io/badge/Vivado-v2018.3-blue)
 ![SDK](https://img.shields.io/badge/SDK-v2018.3-blue.svg)
+
+<p align="center">
+    <a href="doc/README_ru.md">Русский язык</a>
+</p>
 
 <div align=left>
 
@@ -136,7 +139,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
 - Xilinx SDK v2018.3
 - Vivado HLS v2018.3
 
-## 实验流程部分
+## 实验流程介绍
 
 1. HLS 开发部分
 2. Vivado 设计部分

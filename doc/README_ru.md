@@ -2,21 +2,22 @@
 
 <h1 align="center"></h1>
  <p align="center">
-  <img width="250px" src="https://github.com/NekoSilverFox/NekoSilverfox/blob/master/icons/new_logo_spbstu_en.svg" align="center" alt="silverfox" /></br>
+  <img width="250px" src="https://raw.githubusercontent.com/NekoSilverFox/NekoSilverfox/403ab045b7d9adeaaf8186c451af7243f5d8f46d/icons/new_logo_spbstu_ru.svg" align="center" alt="silverfox" /></br>
   <b><b>Санкт-Петербургский государственный политехнический университет</b></br></b>
   <b>Институт компьютерных наук и технологий</b>
   <h1 align="center"></h1>
  </p>
  <p align="center"></p>
+
 </p>
 
 <p align="center">
  <h1 align="center">Обнаружение углов на ZYNQ</h2>
- <p align="center"><b>Based on XC7Z020clg400-2 Soc</b></p>
+ <p align="center"><b>На основе XC7Z020clg400-2 Soc</b></p>
 </p>
 
-<div align=center>
 
+<div align=center>
 ![ZYNQ](https://img.shields.io/badge/ZYNQ-ZYNQ--7000-orange)
 ![SoC](https://img.shields.io/badge/SoC-XC7Z020clg400--2-orange)
 ![Camera](https://img.shields.io/badge/Camera-OV5640-yellow)
@@ -25,9 +26,11 @@
 ![Vivado](https://img.shields.io/badge/Vivado-v2018.3-blue)
 ![SDK](https://img.shields.io/badge/SDK-v2018.3-blue.svg)
 
+<p align="center">
+    <a href="../README.md">简体中文</a>
+</p>
+
 <div align=left>
-
-
 [toc]
 
 
@@ -47,9 +50,19 @@
 
 
 
+## GitHub Repository
+
+Ссылки на репозитории GitHub: 
+
+https://github.com/NekoSilverFox/CornerDetectionOnZYNQ
+
+
+
 ## Цель проекта
 
 Реализация получения данных изображения в реальном времени камерой OV5640. Отметить положение угловой точки с помощью платы ZYNQ-7. Выводить обработанное изображение в экран через HDMI.
+
+
 
 ## Аппаратная платформа
 
@@ -58,7 +71,11 @@
 - Камера：OV5640
 - Экран：Xiaomi 34''
 
+
+
 ---
+
+
 
 ### Mizar Z7
 
@@ -167,7 +184,11 @@ ResetB подтянут к низкому уровню, сброс OV5640.
 - Xilinx SDK v2018.3
 - Vivado HLS v2018.3
 
-## Процесс можно делить на 4 части
+
+
+## Введение в экспериментальный процесс
+
+Процесс можно делить на 4 части:
 
 1. Разработка с HLS 
 2. Дизайн с Vivado
@@ -798,7 +819,7 @@ set_property IOSTANDARD TMDS_33 [get_ports hdmi_tx_clk_p]
 
 
 
-### 3.Программирование с  Xilinx SDK 
+### 3. Программирование с  Xilinx SDK
 
 #### 1) Создать проект
 
@@ -921,7 +942,7 @@ set_property IOSTANDARD TMDS_33 [get_ports hdmi_tx_clk_p]
 
 
 
-## Литература:
+## Литература
 
 [Xilinx xp1167 Accelerating OpenCV Applications with Zynq-7000 All Programmable SoC using Vivado HLS Video Libraries](https://www.xilinx.com/support/documentation/application_notes/xapp1167.pdf)
 
