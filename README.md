@@ -1,8 +1,9 @@
 <p align="center">
- <img width="100px" src="https://github.com/NekoSilverFox/NekoSilverfox/blob/master/icons/silverfox.svg" align="center" alt="Corner detection on ZYNQ" />
+ <img width="100px" src="https://raw.githubusercontent.com/NekoSilverFox/NekoSilverfox/403ab045b7d9adeaaf8186c451af7243f5d8f46d/icons/silverfox.svg" align="center" alt="Corner detection on ZYNQ" />
  <h1 align="center">Corner detection on ZYNQ</h2>
  <p align="center"><b>Based on XC7Z020clg400-2 Soc</b></p>
 </p>
+
 
 
 <div align=center>
