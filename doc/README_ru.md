@@ -1,5 +1,4 @@
 <!-- SPbSTU  -->
-
 <h1 align="center"></h1>
  <p align="center">
   <img width="250px" src="https://raw.githubusercontent.com/NekoSilverFox/NekoSilverfox/403ab045b7d9adeaaf8186c451af7243f5d8f46d/icons/new_logo_spbstu_ru.svg" align="center" alt="silverfox" /></br>
@@ -12,12 +11,15 @@
 </p>
 
 <p align="center">
- <h1 align="center">Обнаружение углов на ZYNQ</h2>
- <p align="center"><b>На основе XC7Z020clg400-2 Soc</b></p>
+ <h1 align="center">Отчёт по курсовой работе</h1>
+ <h2 align="center">по дисциплине «Микропроцессорные системы»</h2>
+ <h2 align="center">Обнаружение углов на ZYNQ</h2>
 </p>
 
 
 <div align=center>
+
+
 ![ZYNQ](https://img.shields.io/badge/ZYNQ-ZYNQ--7000-orange)
 ![SoC](https://img.shields.io/badge/SoC-XC7Z020clg400--2-orange)
 ![Camera](https://img.shields.io/badge/Camera-OV5640-yellow)
@@ -25,6 +27,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen)](LICENSE)
 ![Vivado](https://img.shields.io/badge/Vivado-v2018.3-blue)
 ![SDK](https://img.shields.io/badge/SDK-v2018.3-blue.svg)
+
 
 <p align="center">
     <a href="../README.md">简体中文</a>
