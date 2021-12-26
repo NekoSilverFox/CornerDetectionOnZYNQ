@@ -76,7 +76,7 @@
 
 #### 简介
 
-OV5640 是一款 1/4 英寸单芯片图像传感器，其感光阵列达到 2592*1944(即 500W 像素)，能实现最 快 15fps QSXVGA(2592*1944)或者 90fps VGA(640*480)分辨率的图像采集。传感器采用 OmniVision 推出的 OmniBSI(背面照度)技术，使传感器达到更高的性能，如高灵敏度、低串扰和低噪声。传感器内部集 成了图像处理的功能，包括自动曝光控制(AEC)、自动白平衡(AWB)等。同时该传感器支持 LED 补光、 MIPI(移动产业处理器接口)输出接口和 DVP(数字视频并行)输出接口选择、ISP(图像信号处理)以及 AFC(自动聚焦控制)等功能。
+OV5640 是一款 1/4 英寸单芯片图像传感器，其感光阵列达到 2592*1944(即 500W 像素)，能实现最 快 15fps QSXVGA(2592*1944) 或者 90fps VGA(640*480) 分辨率的图像采集。传感器采用 OmniVision 推出的 OmniBSI(背面照度) 技术，使传感器达到更高的性能，如高灵敏度、低串扰和低噪声。传感器内部集 成了图像处理的功能，包括自动曝光控制(AEC)、自动白平衡(AWB)等。同时该传感器支持 LED 补光、 MIPI(移动产业处理器接口)输出接口和 DVP(数字视频并行)输出接口选择、ISP(图像信号处理)以及 AFC(自动聚焦控制)等功能。
 
 ---
 
@@ -269,7 +269,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
      	hls::AXIvideo2Mat(inStream, img_0);
      	PIXEL_RGB color(255,255,0);
      	rgb2gray(img_0, img_1, img_2);
-     	hls::FASTX(img_2, mask, 20, true);			// 快速脚点检测
+     	hls::FASTX(img_2, mask, 20, true);			// 快速角点检测
      	hls::Dilate(mask, dmask);					//对检测出来的点进行膨胀
      	hls::PaintMask(img_1, dmask, img_3, color);		//将膨胀后的点添加到图像
      	hls::Mat2AXIvideo(img_3, outStream);
@@ -294,7 +294,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
        } else {
            Mat o = imread(output_image);
            Mat g = imread(golden_image);
-           assert(o.rows == g.rows && o.cols == g.cols);	//assert如果正确，则继续运行后面的程序，否则报错
+           assert(o.rows == g.rows && o.cols == g.cols);	// assert如果正确，则继续运行后面的程序，否则报错
            assert(o.channels() == g.channels() && o.depth() == g.depth());
            printf("rows = %d, cols = %d, channels = %d, depth = %d\n", o.rows, o.cols, o.channels(), o.depth());
            int flag = 0;
@@ -413,20 +413,20 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 **信号说明：**
 
-| 信号名             | 方向   | 端口说明                 |
-| ------------------ | ------ | ------------------------ |
-| clk                | input  | 时钟                     |
-| rst                | input  | 复位信号                 |
-| cmos_cfg_done      | input  | 寄存器配置完成信号       |
-| cmos_pclk          | input  | cmos 数据像素时钟        |
-| cmos_vsync         | input  | cmos 场同步信号          |
-| cmos_href          | input  | cmos 行同步信号          |
-| cmos_data[9:0]     | input  | cmos 数据                |
-| pclk               | output | pixel out clock          |
-| cmos_data_vld      | output | frame is active flag     |
-| cmos_clk_en        | output | cmos clock enable siagnl |
-| capture_data[23:0] | output |                          |
-| vsync              | output |                          |
+| 信号名             | 方向   | 端口说明                                                     |
+| ------------------ | ------ | ------------------------------------------------------------ |
+| clk                | input  | 时钟                                                         |
+| rst                | input  | 复位信号                                                     |
+| cmos_cfg_done      | input  | 寄存器配置完成信号                                           |
+| cmos_pclk          | input  | cmos 数据像素时钟                                            |
+| cmos_vsync         | input  | cmos 场同步信号                                              |
+| cmos_href          | input  | cmos 行同步信号                                              |
+| cmos_data[9:0]     | input  | cmos 数据                                                    |
+| pclk               | output | pixel out clock                                              |
+| cmos_data_vld      | output | frame is active flag                                         |
+| cmos_clk_en        | output | cmos clock enable siagnl                                     |
+| capture_data[23:0] | output | 图像数据流                                                   |
+| vsync              | output | 垂直同步脉冲（加在两帧之间。 跟水平同步脉冲类似，但它指示着前一帧的结束，和新一帧的开始） |
 
 **配置：**
 
@@ -434,7 +434,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 ![image-20211024210038679](README.assets/image-20211024210038679.png)
 
-将PS 端的输出时钟作为该 IP 的驱动时钟，连接时钟信号如下图所示：
+将 PS 端的输出时钟作为该 IP 的驱动时钟，连接时钟信号如下图所示：
 
 ![image-20211024210139183](README.assets/image-20211024210139183.png)
 
@@ -444,7 +444,7 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 **IP核介绍：**
 
- Video In to AXI4-Stream IP 核用于将视频源（带有同步信号的时钟并行视频数据，即同步sync或消隐blank信号或者而后者皆有）转换成AXI4-Stream接口形式，实现了接口转换。该IP还可使用VTC核，VTC在视频输入和视频处理之间起桥梁作用。
+ Video In to AXI4-Stream IP 核用于将视频源（带有同步信号的时钟并行视频数据，即同步sync或消隐blank信号或者而后者皆有）转换成 AXI4-Stream 接口形式，实现了接口转换。该IP还可使用 VTC 核，VTC 在视频输入和视频处理之间起桥梁作用。
 
 **配置：**
 
@@ -466,7 +466,15 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 **配置：**
 
-设置输入时钟频率为50Mhz，设置输出时钟1 的输出频率为65Mhz，输出时钟2 的频率为325Mhz，设置复位信号为低电平有效。如下图所示：
+- 设置输入时钟频率为50Mhz
+
+- 设置输出时钟1 的输出频率为65Mhz
+
+- 设置输出时钟2 的频率为325Mhz
+
+- 设置复位信号为低电平有效
+
+    如下图所示：
 
 ![image-20211024211032965](README.assets/image-20211024211032965.png)
 
@@ -488,9 +496,9 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 设置完成后连接相关信号：
 
-- 时钟 IP 的时钟信号 clk_in1 连接 ps 端输出时钟， 复位信号连接 ps 端输出复位信号
-- ov5640_capture 的时钟输入 clk 连接 ps 端输 出时钟信号，复位信号为**高有效**，将 ps 端输出复位信号经过非门之后连接倒复 位信号输入端。
-- video in to AXI4-Stream IP 的时钟信号 aclk 连接 ps 端的输出时钟。 
+- 时钟 IP 的时钟信号 clk_in1 连接 PS 端输出时钟， 复位信号连接 PS 端输出复位信号
+- ov5640_capture 的时钟输入 clk 连接 PS 端输 出时钟信号，复位信号为**高有效**，将 PS 端输出复位信号经过非门之后连接倒复位信号输入端。
+- video in to AXI4-Stream IP 的时钟信号 aclk 连接 PS 端的输出时钟。 
 
 连接时钟和复位信号如下所示：
 
@@ -500,13 +508,15 @@ OV5640 需要满足一定的上电要求，才能正常工作
 
 #### 9) 添加两个 VDMA IP
 
-> 使用 VDMA IP 核来实现对于 AXI4-Stream 类目标外设的高带宽直接存储器存储或读取来读取 DDR 中的数据。VDMA 读取到数据之后通过 AXI4-Stream to Video Out IP 核将数据流转换成视频协议的数据流
+> 使用 VDMA IP 核来实现对于 AXI4-Stream 类目标外设的高带宽直接存储器存储或读取 DDR 中的数据。
+>
+> VDMA 读取到数据之后通过 AXI4-Stream to Video Out IP 核将数据流转换成视频协议的数据流
 
 **VDMA IP核介绍：**
 
-AXI VDMA(AXI Video Direct Memory Access，以下简称 VDMA)， 是 Xilinx 提 供的软核 IP。该 IP 可以看作 DMA 的升级版，提供了一些适用于视频图像应用的 功能。与 DMA 类似，该 IP 可以为存储器或者 AXI4-Stream 类目标外设之间提供 高带宽直接存储器存取。在此基础上增加了帧缓存的缓冲机制和同步锁相 (GenLock)等功能，同时集成了视频专用功能，如帧同步和 2D DMA 传输等， 非常适合基于 ZYNQ 架构上的图像和视频处理应用。
+AXI VDMA(AXI Video Direct Memory Access，中文：直接访问AXI视频存储器，以下简称 VDMA)， 是 Xilinx 提供的软核 IP。该 IP 可以看作 DMA 的升级版，提供了一些适用于视频图像应用的功能。与 DMA 类似，该 IP 可以为存储器或者 AXI4-Stream 类目标外设之间提供高带宽直接存储器存取。在此基础上增加了帧缓存的缓冲机制和同步锁相 (GenLock) 等功能，同时集成了视频专用功能，如帧同步和 2D DMA 传输等， 非常适合基于 ZYNQ 架构上的图像和视频处理应用。
 
-AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流转换为 Memory Map 格式或将 Memory Map 格式的数据转换为 AXI Stream 数据流，从而实现与 DDR3 进行通信。
+**简而言之，AXI VDMA 用于将 AXI Stream 格式的数据流转换为 Memory Map 格式或将 Memory Map 格式的数据转换为 AXI Stream 数据流，从而实现与 DDR3 进行通信。**
 
 <img src="README.assets/image-20211222165935436.png" alt="image-20211222165935436" style="zoom:50%;" />
 
@@ -518,7 +528,7 @@ AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流
 - **AXI Stream Write (S2MM)：AXI Stream 视频流写入图像**
 - **AXI Stream Read (MM2S)：AXI Stream 视频流读出图像**
 
-从框图中可以看出，VDMA 主要由控制和状态寄存器、数据搬运模块、行缓 冲这几部分构成。数据进出 DDR 要经过行缓冲进行缓存，然后由数据搬运模块 写入或者读出数据。数据搬运模块具体如何工作，由相关寄存器负责控制。VDMA 的工作状态可以通过读取状态寄存器进行获取。
+从框图中可以看出，VDMA 主要由控制和状态寄存器、数据搬运模块、行缓冲这几部分构成。数据进出 DDR 要经过行缓冲进行缓存，然后由数据搬运模块写入或者读出数据。数据搬运模块具体如何工作，由相关寄存器负责控制。VDMA 的工作状态可以通过读取状态寄存器进行获取。
 
 
 
@@ -526,33 +536,33 @@ AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流
 
 - **帧缓存**
 
-    在日常生活中我们知道想要实现流畅的视频播放至少需要 24 帧/秒，即每秒 播放 24 幅图像。一般在图像处理设备中图像输入源和图像显示的传输速率是不匹配的(如图像输入源传输速度较快或者图像显示端传输速度较快)，在这种时 候直接读取输入源来显示显然是不合适，时候就需要一片存储区域来缓存输入的数据，以便显示设备读取使用，同时方便后续对视频数据做图像处理。这就是帧 缓存存储器(Frame Buffer)，简称帧缓存，也常被称作显存。帧缓存的每一个存储单元对应屏幕上的一个像素，整个帧缓存对应一帧图像。
+    在日常生活中我们知道想要实现流畅的视频播放至少需要 24 帧/秒，即每秒 播放 24 幅图像。一般在图像处理设备中图像输入源和图像显示的传输速率是不匹配的(如图像输入源传输速度较快或者图像显示端传输速度较快)，在这种时 候直接读取输入源来显示显然是不合适，时候就需要一片存储区域来缓存输入的数据，以便显示设备读取使用，同时方便后续对视频数据做图像处理。这就是帧缓存存储器(Frame Buffer)，简称帧缓存，也常被称作显存。帧缓存的每一个存储单元对应屏幕上的一个像素，整个帧缓存对应一帧图像。
 
     在使用帧缓存来缓存图像数据时，可以采用单帧缓存或多帧缓存的方案。 **单帧缓存是指图像的输入和图像的显示都是通过读写同一片存储区域来实现的**。 而**多帧缓存是指将不同的图像保存在不同的存储区域，显示时按顺序读取**。显而 易见，单帧缓存存在一个缺陷，那就是当数据源连续输入的时候，帧缓存保存的 就可能是两帧或更多帧图像数据叠加的结果，当显示设备读取显示的时候就会出 现图像割裂的现象。所以单帧缓存适用于输入速率小于读取速率的应用场景。**对于摄像头图像显示或视频播放就需要用到多帧缓存**。
 
 - **同步锁相**
 
-    实际应用场景中，为解决图像输入端和输出端的数据速率不匹配导致的潜 在错误通常使用多帧缓存来保存数据。图像输入端在写入其中一个帧缓存时，输 出端读取其它的帧缓存。这就涉及到帧缓存的读写策略，即同步锁相模式。
+    实际应用场景中，为解决图像输入端和输出端的数据速率不匹配导致的潜在错误通常使用多帧缓存来保存数据。图像输入端在写入其中一个帧缓存时，输出端读取其它的帧缓存。这就涉及到帧缓存的读写策略，即**同步锁相模式**。
 
-    VDMA 支持四种同步锁相模式，分别是 Genlock Maste(r 同步锁相主模式)、 Genlock Slave(同步锁从模式)、 Dynamic Genlock Master(动态同步锁相主模式) 和 Dynamic Genlock Slave(动态同步锁相从模式)。
+    VDMA 支持四种同步锁相模式，分别是 Genlock Master(同步锁相主模式)、 Genlock Slave(同步锁从模式)、 Dynamic Genlock Master(动态同步锁相主模式) 和 Dynamic Genlock Slave(动态同步锁相从模式)。
 
-    **VDMA 有一个写通道(S2MM)和一个读通道(MM2S)，用户通过写通道将 输入端数据写入帧缓存，通过读通道将从帧缓存中读出数据。** VDMA 的每一个 通道都可以选择以上四种模式中的一种，接下来我们分别向大家介绍这四种同步模式。
+    **VDMA 有一个写通道(S2MM)和一个读通道(MM2S)，用户通过写通道将输入端数据写入帧缓存，通过读通道将从帧缓存中读出数据。** VDMA 的每一个通道都可以选择以上四种模式中的一种，接下来我们分别向大家介绍这四种同步模式。
 
     - Genlock Master(同步锁相主模式)
 
-        当写通道(S2MM)或者读通道(MM2S)配置为 Genlock Master 时，该 通道不会跳过或者重复任一帧缓存区域，按照帧缓存顺序读出数据。配置为 Genlock Slave 的通道应当紧跟 Genlock Master 通道变化，但有一定的延迟，延 迟的大小在寄存器(*frmdly_stride[28:24])中配置。
+        当写通道(S2MM) 或者读通道(MM2S) 配置为 Genlock Master 时，该通道不会跳过或者重复任一帧缓存区域，按照帧缓存顺序读出数据。配置为 Genlock Slave 的通道应当紧跟 Genlock Master 通道变化，但有一定的延迟，延 迟的大小在寄存器 (*frmdly_stride[28:24]) 中配置。
 
     - Genlock Slave(同步锁从模式)
 
-        当写通道(S2MM)或者读通道(MM2S)配置为 Genlock Slave 时，该通 道会通过跳过或者重复一些帧缓存区域的方式，尝试与 Genlock Master 通道同 步。
+        当写通道(S2MM) 或者读通道(MM2S) 配置为 Genlock Slave 时，该通道会通过跳过或者重复一些帧缓存区域的方式，尝试与 Genlock Master 通道同步。
 
     - Dynamic Genlock Master(动态同步锁相主模式)
 
-        当写通道(S2MM)或者读通道(MM2S)配置为 Dynamic Genlock Master 时， 该通道会跳过 Dynamic Genlock Slave 通道正在操作的帧缓存，通过跳过或者重 复一些帧缓存区域的方式来完成。
+        当写通道(S2MM) 或者读通道(MM2S) 配置为 Dynamic Genlock Master 时， 该通道会跳过 Dynamic Genlock Slave 通道正在操作的帧缓存，通过跳过或者重复一些帧缓存区域的方式来完成。
 
     - Dynamic Genlock Slave(动态同步锁相从模式)
 
-        当写通道(S2MM)或者读通道(MM2S)配置为 Dynamic Genlock Slave 时，该通道会操作 Dynamic Genlock Master 通道上一周期操作的帧。
+        当写通道(S2MM) 或者读通道(MM2S) 配置为 Dynamic Genlock Slave 时，该通道会操作 Dynamic Genlock Master 通道上一周期操作的帧
 
         
 
@@ -564,11 +574,11 @@ AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流
 
 **配置：**
 
-- `Frame Buffers` 选项可以选择 AXI VDMA 要处理的帧缓冲存储位置 的数量。由于本次显示实验只显示一张图片，数据只需要写入一次，因此不需要 设置多个帧缓存区域，这里设置为 1。因为本实验是从 DDR3 中读取数据输出给 LCD，所以只需要勾选 Enable Read Channel 就可以了，无需勾选 Enable Write Channel
+- `Frame Buffers` 选项可以选择 AXI VDMA 要处理的帧缓冲存储位置的数量。由于本次显示实验只显示一张图片，数据只需要写入一次，因此不需要设置多个帧缓存区域，这里设置为 1。因为本实验是从 DDR3 中读取数据输出给我们自己编写的图像处理 IP 核，所以只需要勾选 Enable Read Channel 和 Enable Write Channel
 - `Memory Map Data Width` 选项可以为 MM2S 通道选择所需的 AXI4 数据宽度。此处保持默认 64 即可
 - `Write/Read Burst Size` 用于指定突发写/读的大小，此处选择 32
-- `Stream Data Width` 选 项可以选择 MM2S 通道的 AXI4-Stream 数据宽度。 有效值是 8 的倍数，最大 到 1024。 必须注意的是该值必须小于或等于 Memory Map Data Width。**此处因输出数据格式为 RGB888，设置为 24**
-- `Line Buffer Depth` 选项可以选择 MM2S 通道的行缓冲深度（行缓冲区宽度 为 stream data 的大小） ，此处设置 **512**
+- `Stream Data Width` 选项可以选择 MM2S 通道的 AXI4-Stream 数据宽度。 有效值是 8 的倍数，最大到 1024。 必须注意的是该值必须小于或等于 Memory Map Data Width。**此处因输出数据格式为 RGB888，设置为 24**
+- `Line Buffer Depth` 选项可以选择 MM2S 通道的行缓冲深度（行缓冲区宽度为 stream data 的大小） ，此处设置 **512**
 
 ![image-20211024204045417](README.assets/image-20211024204045417.png)
 
@@ -668,11 +678,11 @@ AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流
 
 **IP核介绍：**
 
-增加一个常量输出模块 Constant，这里我们需要将 hdmi_opn 拉高，使其始终处于工作状态
+增加一个常量输出模块 Constant，这里我们需要将 hdmi_opn 拉高，使其**始终**处于工作状态
 
 **配置：**
 
-设置输出位宽为1，输出高电平1 作为HDMI 输出使能信号
+设置输出位宽为1，输出高电平1 作为 HDMI 的输出使能信号
 
 ![image-20211024224529858](README.assets/image-20211024224529858.png)
 
@@ -714,7 +724,7 @@ AXI VDMA 是 Xilinx 提供的软核 IP，用于将 AXI Stream 格式的数据流
 
 #### 19) 进行管脚约束
 
-```xdc
+```verilog
 set_property PACKAGE_PIN N18 [get_ports {cmos_pclk}]
 set_property PACKAGE_PIN Y16 [get_ports {cmos_href}]
 set_property PACKAGE_PIN Y19 [get_ports {cmos_vsync}]
@@ -755,11 +765,15 @@ set_property IOSTANDARD TMDS_33 [get_ports hdmi_tx_chn_b_p]
 set_property IOSTANDARD TMDS_33 [get_ports hdmi_tx_clk_p]
 ```
 
+
+
 #### 20) 生成 Bitstream
 
 
 
 #### 21) Export Hardware（Include Bitstream）
+
+因为我们使用到了 PL 端的资源，所以要勾选 `Include Bitstream`
 
 
 
@@ -805,11 +819,13 @@ static XDocorner 				doCorner 	;
 static XDocorner_Config 		*doCorner_Cfg;
 
 
-int initdoCorner(){
+int initdoCorner()
+{
 	int status;
 	doCorner_Cfg = XDocorner_LookupConfig(CORNER_DEV_ID);
 	status = XDocorner_CfgInitialize(&doCorner ,doCorner_Cfg);
-	if(status != XST_SUCCESS){
+	if(status != XST_SUCCESS)
+    {
 		printf("initialize failed! \n");
 		return status;
 	}
@@ -819,17 +835,21 @@ int initdoCorner(){
 
 
 //设置显示器背景
-void setBackground(){
+void setBackground()
+{
 	u32 *memAddr;
 	int idxRow;
 	int idxCol;
 	memAddr = (u32 *) DISP_BASE_ADDR;
 	for(idxRow = 0;idxRow < SCREEN_Y; idxRow++){
-		for(idxCol = 0;idxCol < SCREEN_X; idxCol++){
-			if(idxRow < SCREEN_Y/2){
+		for(idxCol = 0;idxCol < SCREEN_X; idxCol++)
+        {
+			if(idxRow < SCREEN_Y/2)
+            {
 				memAddr[idxCol + idxRow*SCREEN_X] = 0;
 			}
-			else{
+			else
+            {
 				memAddr[idxCol + idxRow*SCREEN_X] = 0xFFFFFF;
 			}
 		}
@@ -847,17 +867,17 @@ int main()
 	run_vdma_frame_buffer(&Vdma, HLS_VDMA_DEV_ID, SCREEN_X, SCREEN_Y,HLS_BASE_ADDR,0, 0,BOTH);
 	run_vdma_frame_buffer(&Vdma, DISPLAY_VDMA_DEV_ID, SCREEN_X, SCREEN_Y,DISP_BASE_ADDR,0, 0,BOTH);
 	status = initdoCorner();
-	if(status != XST_SUCCESS){
+	if(status != XST_SUCCESS)
+    {
 		printf("initialize failed! \n");
 		return status;
 	}
 	setBackground();
 
-	while(1){
+	while(1)
+    {
 		XDocorner_Start(&doCorner);
-		while(!XDocorner_IsDone(&doCorner)){
-
-		}
+		while(!XDocorner_IsDone(&doCorner)) {}
 	}
     return 0;
 }
@@ -883,6 +903,8 @@ int main()
   连接如图所示：
 
   ![image-20211024230736115](README.assets/image-20211024230736115.png)
+
+
 
 #### 2) 在 SDK 中写入 Bitstream 后开始运行
 
